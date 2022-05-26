@@ -1,3 +1,5 @@
 <?php
 
-echo "Frond controller";
+include "vendor/autoload.php";
+
+new App\Core\Request();
