@@ -1,5 +1,8 @@
 <?php
+include "bootstrap/init.php";
+// use App\Core\Request;
+use App\Core\StupidRouter;
 
-include "vendor/autoload.php";
+$route = new StupidRouter;
+$route->run();
 
-new App\Core\Request();
