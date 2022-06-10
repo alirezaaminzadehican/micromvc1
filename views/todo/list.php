@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= $title ?? 'Todo List'; ?></title>
     <style>
         .todo-list {
   background: #FFF;
@@ -164,6 +164,7 @@ body {
 
 
 <div class="todo-list">
+    <?php foreach($tasks as $task): ?>
   <label class="todo">
     <input class="todo__state" type="checkbox" />
     
@@ -174,37 +175,11 @@ body {
       <use xlink:href="#todo__circle" class="todo__circle"></use>
     </svg>
 
-    <div class="todo__text">Do a very important task</div>
+    <div class="todo__text"><?= $task ?></div>
     
   </label>
+  <?php endforeach; ?>
 
-  <label class="todo">
-
-    <input class="todo__state" type="checkbox" />
-
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 25" class="todo__icon">
-      <use xlink:href="#todo__line" class="todo__line"></use>
-      <use xlink:href="#todo__box" class="todo__box"></use>
-      <use xlink:href="#todo__check" class="todo__check"></use>
-      <use xlink:href="#todo__circle" class="todo__circle"></use>
-    </svg>
-
-    <div class="todo__text">Another important task</div>
-    
-  </label>
-
-  <label class="todo">
-    <input class="todo__state" type="checkbox" />
-    
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 25" class="todo__icon">
-      <use xlink:href="#todo__line" class="todo__line"></use>
-      <use xlink:href="#todo__box" class="todo__box"></use>
-      <use xlink:href="#todo__check" class="todo__check"></use>
-      <use xlink:href="#todo__circle" class="todo__circle"></use>
-    </svg>
-    
-    <div class="todo__text">Not so important task</div>
-  </label>
 </div>
 </body>
 <script>

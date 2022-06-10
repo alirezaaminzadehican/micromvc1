@@ -12,9 +12,19 @@ class Router{
     public function __construct(){
         $this->request = new Request();
         $this->routes = Route::routes();
+        // var_dump($this->routes);
         $this->current_route = $this->findRoute($this->request) ?? null;
-        // var_dump($this->current_route);
+        # run middleware here 
+        $this->run_route_middleware();
 
+        // var_dump($this->current_route);
+    }
+    private function run_route_middleware(){
+        $middleware = $this->current_route['middleware'];
+        foreach($middleware as $middleware_class){
+            $middleware_obj = new $middleware_class;
+            $middleware_obj->handle();
+        }
     }
 
     public function findRoute(Request $request){
@@ -38,6 +48,7 @@ class Router{
         # if ($this->invalidRequest($this->request)){
         #    $this->dispatch405();
         #}
+        # run middleware here
 
         # 404 : uri not file_exists
         if(is_null ($this->current_route)){

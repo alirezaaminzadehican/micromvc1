@@ -4,14 +4,18 @@ namespace App\Controllers;
 class TodoController{
     public function list(){
         # db
-        $tasks = [
-            'First Task',
+        
+
+        $data = [
+            'tasks'=> ['First Task',
             'Second Task',
             'Thirs Task',
             'Fourth Task',
-            'Fifth Task'
+            'Fifth Task'],
+            'title' => 'لیست تسک ها'
         ];
+
+        // view('todo/list',$data);
         
-        view('todo/list');
     }
 }
